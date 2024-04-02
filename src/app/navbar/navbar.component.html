@@ -1,0 +1,27 @@
+<div class="d-flex flex-column justify-content-between vh-100 py-2 px-1">
+
+  @if(Globals.isLoggedIn()){
+    <div class="d-flex flex-column ">
+      <button routerLink="/private" class="btn text-white mb-2"><i class="bi bi-chat-fill fs-5"></i></button>
+      <button routerLink="/groups" class="btn text-white mb-2"><i class="bi bi-people-fill fs-5"></i></button>
+      <button routerLink="/community" class="btn text-white mb-2"><i class="bi bi-globe fs-5"></i></button>
+
+    </div>
+
+    <div class="d-flex flex-column">
+      <button routerLink="/requests" class="btn text-white">R</button>
+      <button routerLink="/profile" class="btn text-white"><i class="bi bi-person-fill fs-4"></i></button>
+      <button (click)="loginService.logout()" class="btn text-white">L</button>
+
+    </div>
+  } @else {
+    <div class="d-flex flex-column ">
+      <button routerLink="/login" class="btn text-white"><i class="bi bi-person-fill fs-4"></i></button>
+
+
+    </div>
+  }
+
+
+
+</div>

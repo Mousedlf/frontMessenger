@@ -1,0 +1,19 @@
+<h2>Discussions</h2>
+
+
+
+<div class="d-flex flex-column" *ngFor="let item of conversations ">
+
+  <div class="d-flex p-3 mb-1 rounded align-items-center"  (click)="test(item)" > <!--[ngClass]="active ? 'bg-warning' : 'bg-white'"-->
+    <div class="bg-secondary rounded-5 p-2">Aa</div>
+    <div class="ps-3">
+      <h6 *ngIf="Globals.currentUser.id === item.participantA.id ; else otherOption">{{item.participantB.username}}</h6>
+      <ng-template #otherOption>{{item.participantA.username}}</ng-template>
+
+      <p class="text-secondary fs-7 m-0">Apercu dernier message + date</p>
+    </div>
+
+  </div>
+
+
+</div>

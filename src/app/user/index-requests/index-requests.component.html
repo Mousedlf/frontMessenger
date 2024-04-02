@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Friend requests</h1>
+
+  <div class="d-flex justify-content-between border-bottom py-2" *ngFor="let item of requests">
+    <p class="mb-3"><span class="fw-bold">{{item.ofProfile.username}}</span>, <span class="text-secondary">date</span></p>
+    <a href="#">see profile</a>
+    <div class="">
+      <a href="" class="btn btn-primary me-2">Accept</a>
+      <a href="" class="btn btn-outline-primary">Decline</a>
+    </div>
+  </div>
+
+
+
+
+</div>
+

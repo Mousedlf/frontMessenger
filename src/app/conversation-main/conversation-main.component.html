@@ -1,0 +1,21 @@
+@if(Globals.isLoggedIn()){
+
+  <div class="d-flex h-100 ">
+
+    <div class="col-2 px-2 border-end border-1 pt-3">
+
+      <app-index-conversations (dataEvent)="receiveConversation($event)"/>
+
+    </div>
+
+    <div class="col-10 pt-3">
+
+      <app-conversation [messages]="messages" [test]="otherParticipantName" [convId]="convId"/>
+
+    </div>
+
+
+  </div>
+
+
+}
