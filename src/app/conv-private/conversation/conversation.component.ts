@@ -43,20 +43,29 @@ export class ConversationComponent {
         console.log(response)
       }
     })
-    //reload page
+    //reload messages
   }
 
 
   send(input:string){
 
-    let data= {"message": input}
+    let data= {"content": input, "associatedImages": []}
     this.messageService.newMessage(data, this.convId).subscribe({
       next:(response)=>{
         console.log(response)
       }
     })
-
+    // reload messages
   }
+
+  edit(content:string){
+
+
+
+    //let data = {"content":editedMsg}
+    //this.messageService.editMessage(id, this.convId, data)
+  }
+
 
 
 

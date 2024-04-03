@@ -12,7 +12,7 @@ export class RequestService {
   constructor(private http: HttpClient) {}
 
   getRequests(): Observable<Request[]> {
-    return this.http.get<Request[]>(Globals.baseUrl+`/friend/request/received/`+Globals.currentUser.id);
+    return this.http.get<Request[]>(Globals.baseUrl+`/friend/request/received/`+Globals.currentUserId);
   }
 
 

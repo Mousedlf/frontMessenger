@@ -9,16 +9,14 @@
     </div>
 
     <div class="d-flex flex-column">
-      <button routerLink="/requests" class="btn text-white">R</button>
+      <button routerLink="/requests" class="btn text-white"><i class="bi bi-mailbox2 fs-5"></i></button>
       <button routerLink="/profile" class="btn text-white"><i class="bi bi-person-fill fs-4"></i></button>
-      <button (click)="loginService.logout()" class="btn text-white">L</button>
+      <button (click)="loginService.logout()" class="btn text-white mt-4"><i class="bi bi-door-closed"></i></button>
 
     </div>
   } @else {
     <div class="d-flex flex-column ">
       <button routerLink="/login" class="btn text-white"><i class="bi bi-person-fill fs-4"></i></button>
-
-
     </div>
   }
 

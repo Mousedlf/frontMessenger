@@ -57,7 +57,7 @@ export class ProfileComponent {
 
           // this.friends.forEach(item => {       VERIF SI PAS AMI pas fonctionnelle
 
-          if(profile.id != Globals.currentUser.id){
+          if(profile.id.toString() != Globals.currentUserId){
               this.profiles.push(profile)
              }
         }

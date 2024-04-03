@@ -17,6 +17,8 @@
 
       @if(item.author.username === Globals.currentUserUsername){
         <button class="btn text-danger" (click)="delete(item.id)">Delete</button>
+        <button class="btn text-warning" (click)="edit(item.content)">Edit</button>
+
       }
 
 

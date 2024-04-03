@@ -12,7 +12,7 @@ export class FriendService {
   constructor(private http: HttpClient) {}
 
   getFriendsOfUser(){
-      return this.http.get<Profile[]>(Globals.baseUrl+"/"+Globals.currentUser.id+"/friends");
+      return this.http.get<Profile[]>(Globals.baseUrl+"/"+Globals.currentUserId+"/friends");
   }
 
   getAllProfiles():Observable<Profile[]>{
