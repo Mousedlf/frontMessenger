@@ -35,7 +35,7 @@ export class IndexConversationsComponent {
             participantA:allConv[i].participantA,
             participantB:allConv[i].participantB
           }
-          if(Globals.currentUser.id == chat.participantA.id || Globals.currentUser.id == chat.participantB.id){
+          if(Globals.currentUserId == chat.participantA.id.toString() || Globals.currentUserId == chat.participantB.id.toString()){
             this.conversations.push(chat)
           }
         }

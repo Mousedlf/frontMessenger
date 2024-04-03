@@ -8,17 +8,16 @@
   <!--<app-conversation-nav [otherParticipant]="otherParticipant"/>-->
 </div>
 
-
-  <div class="" *ngFor="let item of messages ">
+  <div class="px-2" *ngFor="let item of messages ">
 
     <div class="d-flex">
-      <p>{{item.author.username}}: </p>
+      <!--<p>{{item.author.username}}: </p>-->
 
-      <p class="p-2 mb-0 fw-normal">{{item.content}}</p>
+      <p class="badge rounded-pill text-bg-light fw-normal p-2 fs-6 my-1 px-3">{{item.content}}</p>
 
-      <!--@if(item.author.id.toString() == Globals.currentUserId){
-      }-->
-      <button class="btn text-danger" (click)="delete(item.id)">Delete</button>
+      @if(item.author.username === Globals.currentUserUsername){
+        <button class="btn text-danger" (click)="delete(item.id)">Delete</button>
+      }
 
 
       <!-- dropdown -->
@@ -31,10 +30,10 @@
 
 <div class="position-fixed bottom-0 p-2 w-50">
   <form action="" class="d-flex w-100">
-    <input type="text" name="message" id="" class="w-100 w-md-75">
-    <a href="" class="bg-secondary rounded px-2">
-      <i class="bi bi-arrow-right fs-4 text-white"></i>
-    </a>
+    <input type="text" name="message" id="value" class="w-100 w-md-75" #input>
+
+    <button (click)="send(input.value)">lala</button>
+
   </form>
 
 </div>

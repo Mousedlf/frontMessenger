@@ -1,5 +1,4 @@
 import {inject, Injectable} from '@angular/core';
-import {Conversation} from "./conversation";
 import {Globals} from "../globals";
 import {HttpClient} from "@angular/common/http";
 
@@ -11,9 +10,15 @@ export class MessageService {
   private http = inject(HttpClient)
 
   deleteMessage(id:number, convId:number){
-    console.log(Globals.baseUrl+"/private/conversation/"+convId+"/delete/"+id)
-
     return this.http.delete(Globals.baseUrl+"/private/conversation/"+convId+"/delete/"+id)
+  }
+
+  newMessage(data:{}, convId:number){
+    return this.http.post(Globals.baseUrl+"/private/conversation/"+convId+"/message/new",data)
+  }
+
+  editMessage(id:number, convId:number, data:any){
+    return this.http.put(Globals.baseUrl+"/private/conversation/"+convId+"/edit/"+id, data)
   }
 
 }

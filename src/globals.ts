@@ -5,6 +5,8 @@ export class Globals {
   public static token: string|null = localStorage.getItem("Token");
   public static currentUser: Profile
   public static currentUserId: string|null = localStorage.getItem("CurrentUserId") //solution temp
+  public static currentUserUsername: string|null = localStorage.getItem("CurrentUserUsername") //solution temp
+
 
   public static isLoggedIn(){
     return localStorage.getItem("Token") != null

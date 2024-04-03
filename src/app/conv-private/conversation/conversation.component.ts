@@ -6,6 +6,7 @@ import {Message} from "../../message";
 import {Globals} from "../../../globals";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {MessageService} from "../../message.service";
+import {FormsModule, NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-conversation',
@@ -15,7 +16,8 @@ import {MessageService} from "../../message.service";
     ConversationInputComponent,
     NgForOf,
     NgIf,
-    NgClass
+    NgClass,
+    FormsModule
     ,
   ],
   templateUrl: './conversation.component.html',
@@ -32,11 +34,28 @@ export class ConversationComponent {
   messageService = inject(MessageService)
 
 
+
   constructor() {}
 
   delete(id:number){
-    this.messageService.deleteMessage(id, this.convId)
-    //location.reload()
+    this.messageService.deleteMessage(id, this.convId).subscribe({
+      next:(response)=>{
+        console.log(response)
+      }
+    })
+    //reload page
+  }
+
+
+  send(input:string){
+
+    let data= {"message": input}
+    this.messageService.newMessage(data, this.convId).subscribe({
+      next:(response)=>{
+        console.log(response)
+      }
+    })
+
   }
 
 

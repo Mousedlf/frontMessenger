@@ -32,6 +32,7 @@ export class LoginService {
             public: res.public
           }
           localStorage.setItem("CurrentUserId", res.id.toString())
+          localStorage.setItem("CurrentUserUsername", res.username)
           console.log(res)
         }})
       console.log("currentUser")
