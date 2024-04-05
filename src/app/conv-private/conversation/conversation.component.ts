@@ -1,6 +1,5 @@
 import {Component, inject, Input} from '@angular/core';
-import {ConversationNavComponent} from "../conversation-nav/conversation-nav.component";
-import {ConversationInputComponent} from "../conversation-input/conversation-input.component";
+
 import {PrivateConversationService} from "../../private-conversation.service";
 import {Message} from "../../message";
 import {Globals} from "../../../globals";
@@ -12,8 +11,6 @@ import {FormsModule, NgForm} from "@angular/forms";
   selector: 'app-conversation',
   standalone: true,
   imports: [
-    ConversationNavComponent,
-    ConversationInputComponent,
     NgForOf,
     NgIf,
     NgClass,
@@ -34,28 +31,44 @@ export class ConversationComponent {
   messageService = inject(MessageService)
 
 
+  getMessagesByConvId(id:any){
+    this.service.getConversationById(id).subscribe({
+      next: (allMsgs: any) => {
+        this.messages = []
+        for (let i = 0; i < allMsgs.length; i++) {
+          let message: Message = {
+            id: allMsgs[i].id,
+            author: allMsgs[i].author,
+            content: allMsgs[i].content,
+            createdAt: allMsgs[i].createdAt
+          }
+          this.messages.push(message)
+        }
+      }
+    })
+  }
 
-  constructor() {}
 
   delete(id:number){
     this.messageService.deleteMessage(id, this.convId).subscribe({
       next:(response)=>{
         console.log(response)
+        this.getMessagesByConvId(this.convId)
       }
+
     })
-    //reload messages
   }
 
 
   send(input:string){
-
     let data= {"content": input, "associatedImages": []}
     this.messageService.newMessage(data, this.convId).subscribe({
       next:(response)=>{
         console.log(response)
+        this.getMessagesByConvId(this.convId)
+
       }
     })
-    // reload messages
   }
 
   edit(content:string){

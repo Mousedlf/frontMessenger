@@ -61,7 +61,6 @@ export class ConversationMainComponent {
       this.otherParticipantName = $event.participantA.username
 
     }
-
     //console.log("id recup "+$event.id)
     //console.log(this.messages)
   }
