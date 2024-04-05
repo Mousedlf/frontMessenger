@@ -1,15 +1,30 @@
 <div class="container">
-  <h1>Friend requests</h1>
+  <h2>Friend requests</h2>
 
+@if(requests != []){
   <div class="d-flex justify-content-between border-bottom py-2" *ngFor="let item of requests">
     <p class="mb-3"><span class="fw-bold">{{item.ofProfile.username}}</span>, <span class="text-secondary">date</span></p>
     <a href="#">see profile</a>
     <div class="">
-      <a href="" class="btn btn-primary me-2">Accept</a>
-      <a href="" class="btn btn-outline-primary">Decline</a>
+      <button class="btn btn-primary me-2" (click)="acceptRequest(item.id)">Accept</button>
+      <button class="btn btn-outline-primary"  (click)="declineRequest(item.id)">Decline</button>
     </div>
   </div>
+} @else {
+  <p class="text-secondary">no requests received</p>
+  }
 
+
+  <h2 class="mt-5">Want to add someone?</h2>
+  <div class="" style="overflow:scroll; height:500px;">
+    <div class="d-flex justify-content-between border-bottom py-2" *ngFor="let item of profiles" >
+      <p class="mb-3"><span class="fw-bold">{{item.username}}</span></p>
+      <div class="">
+        <!--<a href="#">see profile</a>-->
+        <button class="btn btn-primary me-2" (click)="sendRequest(item.id)">Send request</button>
+      </div>
+    </div>
+  </div>
 
 
 

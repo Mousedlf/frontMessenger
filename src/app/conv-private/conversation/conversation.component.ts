@@ -66,10 +66,11 @@ export class ConversationComponent {
       next:(response)=>{
         console.log(response)
         this.getMessagesByConvId(this.convId)
-
+        // clear input !!
       }
     })
   }
+
 
   edit(content:string){
 

@@ -1,40 +1,41 @@
-<div class="position-sticky top-0 p-2 border-bottom shadow-sm w-100">
+<!-- NAV ------------------------------->
 
+<div class="position-sticky top-0 p-2 border-bottom shadow-sm w-100">
   <div class="d-flex align-items-center ">
     <div class="bg-secondary rounded-5 p-2">Aa</div>
     <h6 class="m-0 ps-2">{{test}}</h6>
   </div>
-
-  <!--<app-conversation-nav [otherParticipant]="otherParticipant"/>-->
 </div>
 
-  <div class="px-2" *ngFor="let item of messages ">
+
+
+<!-- MESSAGES ------------------------------->
+
+  <div class="px-2 pt-3" *ngFor="let item of messages ">
 
     <div class="d-flex">
       <!--<p>{{item.author.username}}: </p>-->
 
       <p class="badge rounded-pill text-bg-light fw-normal p-2 fs-6 my-1 px-3">{{item.content}}</p>
+      <p>{{item.createdAt}}</p>
 
       @if(item.author.username === Globals.currentUserUsername){
         <button class="btn text-danger" (click)="delete(item.id)">Delete</button>
         <button class="btn text-warning" (click)="edit(item.content)">Edit</button>
-
       }
 
-
-      <!-- dropdown -->
     </div>
-
-
-
   </div>
 
 
+
+<!-- INPUT ------------------------------->
+
 <div class="position-fixed bottom-0 p-2 w-50">
   <form action="" class="d-flex w-100">
-    <input type="text" name="message" id="value" class="w-100 w-md-75" placeholder="" #input>
+    <input type="text" name="message" id="value" class="w-100 w-md-75" #input>
 
-    <button (click)="send(input.value)">lala</button>
+    <button (click)="send(input.value)">Send</button>
 
   </form>
 

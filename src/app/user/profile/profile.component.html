@@ -2,20 +2,16 @@
   <h1>Hello {{ Globals.currentUserUsername}}</h1>
 
   <h2>Friends</h2>
+@if(friends != []){
   <ul *ngFor="let item of friends">
     <li>{{ item.username }}</li>
   </ul>
+}  @else {
+    <p class="text-secondary">no friends yet</p>
+  }
 
 
-  <h2>Want to add someone?</h2>
 
-  <div class="d-flex justify-content-between border-bottom py-2" *ngFor="let item of profiles">
-    <p class="mb-3"><span class="fw-bold">{{item.username}}</span></p>
-    <div class="">
-    <a href="#">see profile</a>
-    <a href="" class="btn btn-primary me-2">Send request</a>
-    </div>
-  </div>
 
 
 </div>

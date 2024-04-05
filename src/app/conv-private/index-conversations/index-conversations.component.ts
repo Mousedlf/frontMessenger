@@ -29,6 +29,7 @@ export class IndexConversationsComponent {
   getAllConversationsOfUser(){
     this.service.getConversations().subscribe({
       next:(allConv: any)=>{
+        this.conversations = []
         for(let i=0; i<allConv.length;i++){
           let chat:Conversation={
             id:allConv[i].id,

@@ -20,18 +20,15 @@ export class ProfileComponent {
     protected readonly Globals = Globals;
     friendService = inject(FriendService)
     friends: Profile[]=[]
-  profiles:Profile[]=[]
 
   constructor() {
     this.getFriendsOfUser()
-    this.getAllProfiles()
   }
-
-
 
   getFriendsOfUser(){
       this.friendService.getFriendsOfUser().subscribe({
         next:(allFriends: any) =>{
+          this.friends = []
           for(let i =0; i<allFriends.length;i++){
             let friend:Profile = {
               id:allFriends[i].id,
@@ -44,27 +41,7 @@ export class ProfileComponent {
       })
   }
 
-  getAllProfiles(){
-    this.friendService.getAllProfiles().subscribe({
-      next:(allProfiles: any) =>{
-        for(let i =0; i<allProfiles.length;i++){
 
-          let profile:Profile = {
-            id:allProfiles[i].id,
-            username:allProfiles[i].username,
-            public:allProfiles[i].public
-          }
-
-          // this.friends.forEach(item => {       VERIF SI PAS AMI pas fonctionnelle
-
-          if(profile.id.toString() != Globals.currentUserId){
-              this.profiles.push(profile)
-             }
-        }
-
-      }
-    })
-  }
 
 
 

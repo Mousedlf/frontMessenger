@@ -19,4 +19,5 @@ export class FriendService {
     return this.http.get<Profile[]>(Globals.baseUrl+"/profiles")
   }
 
+
 }

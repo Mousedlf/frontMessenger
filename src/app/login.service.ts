@@ -12,16 +12,24 @@ export class LoginService {
   private http = inject(HttpClient)
   private router = inject(Router)
 
+  register(object:any){
+    this.http.post<any>("https://messenger.dlfcaroline.online/register",object).subscribe({
+      next: (response: Response) => {
+        console.log(response)
+        this.router.navigateByUrl('/login');
+      }
+    })
+  }
+
+
   login(object: any) {
     this.http.post<any>(Globals.baseUrl+"/login_check", object).subscribe({
       next:(response:any)=>{
         localStorage.setItem("Token", response["token"])
-        // location.reload()
-        // this.router.navigate(["/private"])
-
       }})
-    console.log("ouin")
 
+
+    // REVOIR ! double click necessaire
 
     if(Globals.isLoggedIn()){
       this.http.get<any>(Globals.baseUrl+"/profile/actual").subscribe({
@@ -35,7 +43,6 @@ export class LoginService {
           localStorage.setItem("CurrentUserUsername", res.username)
           console.log(res)
         }})
-      console.log("currentUser")
     }
 
     //this.router.navigate(['/private'])
