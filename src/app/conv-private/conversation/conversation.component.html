@@ -32,10 +32,11 @@
 <!-- INPUT ------------------------------->
 
 <div class="position-fixed bottom-0 p-2 w-50">
-  <form action="" class="d-flex w-100">
-    <input type="text" name="message" id="value" class="w-100 w-md-75" #input>
+  <form action="" class="d-flex w-100" #form="ngForm">
+    <input type="text" name="content" id="value" class="w-100 w-md-75" ngModel>
+    <input type="text" name="associatedImages" value="" ngModel >
 
-    <button (click)="send(input.value)">Send</button>
+    <button (click)="send(form)">Send</button>
 
   </form>
 

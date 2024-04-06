@@ -60,19 +60,20 @@ export class ConversationComponent {
   }
 
 
-  send(input:string){
-    let data= {"content": input, "associatedImages": []}
-    this.messageService.newMessage(data, this.convId).subscribe({
+  send(form:NgForm){
+    console.log(form.value)
+    form.resetForm()
+
+/*this.messageService.newMessage(data, this.convId).subscribe({
       next:(response)=>{
         console.log(response)
         this.getMessagesByConvId(this.convId)
-        // clear input !!
       }
-    })
+    })*/
   }
 
 
-  edit(content:string){
+  edit(editedMsg:string){
 
 
 
